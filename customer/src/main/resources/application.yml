@@ -1,0 +1,25 @@
+server:
+  port: 8081
+  servlet:
+    contextPath: /api
+
+spring:
+  application:
+    name: customer
+
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+#      ddl-auto: create
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/customer_db
+    username: user
+    password: password
+
+  security:
+    user:
+      name: Mick
+      password: password
+      roles: ADMIN
