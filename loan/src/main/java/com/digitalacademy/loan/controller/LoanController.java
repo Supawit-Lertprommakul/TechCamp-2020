@@ -1,5 +1,6 @@
 package com.digitalacademy.loan.controller;
 
+import com.digitalacademy.loan.model.LoanInfo;
 import com.digitalacademy.loan.service.LoanService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -28,8 +29,9 @@ public class LoanController {
     @GetMapping("/info/{id}")
     public HttpEntity<?> getLoanInfoByCustomerId(@PathVariable Long id) throws Exception{
         log.info("Get loan info by customer id: " + id);
-        Map<String, Object> resp = loanService.getLoanInfoById(1L);
-        return ResponseEntity.ok(resp);
+        LoanInfo resp = loanService.getLoanInfoById(id);
+//        return ResponseEntity.ok(resp);
+        return resp != null ? ResponseEntity.ok(resp) : ResponseEntity.notFound().build();
     }
 
 }
