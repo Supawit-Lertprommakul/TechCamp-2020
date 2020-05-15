@@ -1,14 +1,13 @@
 package com.digitalacademy.loan.service;
 
-import com.digitalacademy.loan.controller.LoanController;
+import com.digitalacademy.loan.constants.LoanError;
+import com.digitalacademy.loan.exception.LoanException;
 import com.digitalacademy.loan.model.LoanInfo;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 
-import java.util.HashMap;
 import java.util.Map;
 
 @Service
@@ -33,6 +32,7 @@ public class LoanService {
         log.info("Get loan info by customer id: " + id);
 
         LoanInfo loanInfo = new LoanInfo();
+
         if (id.equals(1L)) {
             loanInfo.setId(1L);
             loanInfo.setStatus("OK");
@@ -40,7 +40,11 @@ public class LoanService {
             loanInfo.setAccountReceivable("102-333-2020");
             loanInfo.setPrincipalAmount(3400000.00);
         } else if(id.equals(2L)) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Bad request");
+            log.info("id: {}", id);
+            throw new LoanException(
+                    LoanError.GET_LOAN_INFO_NOT_FOUND,
+                    HttpStatus.BAD_REQUEST
+            );
             //throw new
             // return loan exception loan not found http status
             // bad request

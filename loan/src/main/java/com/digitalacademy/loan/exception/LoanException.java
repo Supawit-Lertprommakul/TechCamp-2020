@@ -1,9 +1,11 @@
 package com.digitalacademy.loan.exception;
 
 import com.digitalacademy.loan.constants.LoanError;
+import lombok.Data;
 import org.springframework.http.HttpStatus;
 
-public class LoanException {
+@Data
+public class LoanException extends Exception{
     private LoanError loanError;
     private HttpStatus httpStatus = HttpStatus.OK;
 
