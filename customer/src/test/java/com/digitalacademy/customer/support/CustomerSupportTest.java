@@ -6,7 +6,30 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerSupportTest {
+    public static Customer createNewCustomer() {
+        Customer customer = new Customer();
+        customer.setId(8L);
+        customer.setFirstName("Tim");
+        customer.setLastName("Tim");
+        customer.setEmail("tim.tim@test.com");
+        customer.setPhone("0988888888");
+        customer.setAge(24);
+        return customer;
+    }
+
+    public static Customer responseCreateNewCustomer() {
+        Customer customer = new Customer();
+        customer.setId(8L);
+        customer.setFirstName("Tim");
+        customer.setLastName("Tim");
+        customer.setEmail("tim.tim@test.com");
+        customer.setPhone("0988888888");
+        customer.setAge(24);
+        return customer;
+    }
+
     public static List<Customer> getCustomerList() {
+
         List<Customer> customerList = new ArrayList<>();
         Customer customer = new Customer();
         customer.setId(1L);
@@ -63,8 +86,8 @@ public class CustomerSupportTest {
 
         customer = new Customer();
         customer.setId(2L);
-        customer.setFirstName("Minnie");
-        customer.setLastName("Mouse");
+        customer.setFirstName("Mick");
+        customer.setLastName("Minnie");
         customer.setEmail("minnie.mouse@test.com");
         customer.setPhone("0988888888");
         customer.setAge(19);

@@ -38,7 +38,7 @@ public class CustomerController {
     public ResponseEntity<?> getCustomerByName(@RequestParam(value = "name") String name) {
         List<Customer> customer = customerService.getCustomerName(name);
         //Short if
-        return customer != null ? ResponseEntity.ok(customer) : ResponseEntity.notFound().build();
+        return customer != null && !customer.isEmpty() ? ResponseEntity.ok(customer) : ResponseEntity.notFound().build();
     }
 
     @RequestMapping(method = RequestMethod.POST)

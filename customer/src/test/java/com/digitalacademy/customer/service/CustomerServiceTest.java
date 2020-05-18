@@ -87,8 +87,8 @@ public class CustomerServiceTest {
         assertEquals(20,resp.get(0).getAge().intValue());
 
         assertEquals(2,resp.get(1).getId().intValue());
-        assertEquals("Minnie",resp.get(1).getFirstName());
-        assertEquals("Mouse",resp.get(1).getLastName());
+        assertEquals("Mick",resp.get(1).getFirstName());
+        assertEquals("Minnie",resp.get(1).getLastName());
         assertEquals("minnie.mouse@test.com",resp.get(1).getEmail());
         assertEquals("0988888888",resp.get(1).getPhone());
         assertEquals(19,resp.get(1).getAge().intValue());
